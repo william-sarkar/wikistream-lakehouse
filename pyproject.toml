@@ -46,7 +46,7 @@ dev = [
 # putting it in `dependencies` would add ~400 MB of jars to a service that sends
 # JSON to Kafka. The pin must still match the Spark image tag in
 # docker-compose.yml exactly, because `make test-spark` runs against this copy.
-spark = ["pyspark==4.0.4"]
+spark = ["pyspark==4.2.0"]
 # dbt and the Trino client. Kept in a group because the transform layer runs in
 # its own container and does not belong in the streaming runtime's dependency set.
 analytics = [
