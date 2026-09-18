@@ -19,7 +19,7 @@
 # writes and maintains the tables dbt writes, and never writes to bronze or silver
 # itself.
 
-FROM python:3.12.14-slim-trixie AS builder
+FROM python:3.14.7-slim-trixie AS builder
 
 # Pinned to the version that produced the committed uv.lock, as in the other three
 # Dockerfiles. A newer uv can resolve differently.
@@ -51,7 +51,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --group orchestration --group analytics
 
 
-FROM python:3.12.14-slim-trixie AS runtime
+FROM python:3.14.7-slim-trixie AS runtime
 
 # curl for the webserver's healthcheck. git because dbt shells out to it to record
 # the project's commit in run_results.json and warns on every invocation without

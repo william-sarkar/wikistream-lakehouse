@@ -9,7 +9,7 @@
 # Dependencies are installed in a separate layer from the source tree so that
 # editing a Python file does not re-resolve the lockfile.
 
-FROM python:3.12.14-slim-trixie AS builder
+FROM python:3.14.7-slim-trixie AS builder
 
 # Pinned to the version that produced the committed uv.lock. A newer uv can
 # resolve differently, which would make the image stop matching the lockfile the
@@ -38,7 +38,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-editable --no-default-groups
 
 
-FROM python:3.12.14-slim-trixie AS runtime
+FROM python:3.14.7-slim-trixie AS runtime
 
 # curl for the healthcheck and for a human debugging inside the container;
 # ca-certificates because the Wikimedia stream is HTTPS and a slim image has no

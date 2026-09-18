@@ -10,7 +10,7 @@
 # dbt at two versions is a debugging experience worth spending a Dockerfile to
 # avoid.
 
-FROM python:3.12.14-slim-trixie AS builder
+FROM python:3.14.7-slim-trixie AS builder
 
 COPY --from=ghcr.io/astral-sh/uv:0.12.15 /uv /usr/local/bin/uv
 
@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-default-groups --only-group analytics
 
 
-FROM python:3.12.14-slim-trixie AS runtime
+FROM python:3.14.7-slim-trixie AS runtime
 
 # git, because dbt shells out to it to record the project's commit in
 # run_results.json and warns on every invocation when it is missing. That
