@@ -30,7 +30,7 @@
 # Pinned by digest as well as tag, because that was exactly the failure mode: the
 # tag resolved, the manifest was valid, and the contents were not what the version
 # number promised. The digest is the only part of a reference that can say so.
-FROM spark:4.0.4-scala2.13-java17-python3-ubuntu@sha256:8fc690e18426aa04ae92e7709c34fdc0be5ea848840e216fa6091ab9436fd37d
+FROM spark:4.0.4-scala2.13-java17-python3-ubuntu@sha256:04ba045641e3f10b7a68981d7be35ad93c4bb9fc715a51899d7ef455140de4d2
 
 # Root only for the jar downloads and the directory setup. The image drops back to
 # Spark's own unprivileged uid before the end.
