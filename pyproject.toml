@@ -18,7 +18,7 @@ dependencies = [
   # requests cannot express a read timeout that resets per SSE chunk as cleanly.
   "httpx>=0.28.1,<0.29",
   # librdkafka bindings: the only Python client with a real idempotent producer.
-  "confluent-kafka>=2.15.1,<2.16",
+  "confluent-kafka>=2.15.1,<2.17",
   "pydantic>=2.12.0,<3",
   "pydantic-settings>=2.15.0,<3",
   # Only for the Jetstream fallback source. Small enough to keep in the runtime
@@ -46,14 +46,14 @@ dev = [
 # putting it in `dependencies` would add ~400 MB of jars to a service that sends
 # JSON to Kafka. The pin must still match the Spark image tag in
 # docker-compose.yml exactly, because `make test-spark` runs against this copy.
-spark = ["pyspark==4.0.4"]
+spark = ["pyspark==4.0.5"]
 # dbt and the Trino client. Kept in a group because the transform layer runs in
 # its own container and does not belong in the streaming runtime's dependency set.
 analytics = [
   "dbt-core>=1.12.5,<1.13",
-  "dbt-trino>=1.10.4,<1.11",
-  "trino>=0.339.0,<0.340",
-  "duckdb>=1.5.5,<1.6",
+  "dbt-trino>=1.10.4,<1.12",
+  "trino>=0.339.0,<0.341",
+  "duckdb>=1.5.5,<2.1",
 ]
 orchestration = [
   "dagster>=1.13.23,<1.14",
